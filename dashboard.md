@@ -10,4 +10,6 @@ Key highlights:
 - Combines spatial and temporal insights to support operational decision-making.
 - Demonstrates end-to-end ownership from streaming ingestion to business intelligence.
 
+Output:
+<img width="1920" height="1080" alt="dashboard" src="https://github.com/user-attachments/assets/354b5a23-1a87-44f6-89d9-a5f10b819c74" />
 
