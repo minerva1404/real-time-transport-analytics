@@ -1,90 +1,105 @@
-# Real-Time MBTA Transport Analytics
+# 🚆 Real-Time Transport Analytics
 
-End-to-end real-time transport analytics pipeline built on live **MBTA GTFS-Realtime feeds**, designed to demonstrate production-style **streaming ingestion, transformation, alerting, and analytics**.
+## Description:
+This project implements a full *end-to-end real-time transit analytics platform* using MBTA (Boston) GTFS-realtime feeds. It ingests live vehicle positions and trip updates, processes them through *Kafka, **Spark Structured Streaming, and **Delta Lake*, and provides actionable insights via a live console dashboard.
 
-This project processes live **Trip Updates** and **Vehicle Positions** data using Kafka, Spark Structured Streaming, and Delta Lake, and surfaces insights through a Power BI dashboard.
-
----
-
-## Architecture & Data Flow
-
-The system follows a layered **Bronze → Silver → Gold** streaming architecture:
-
-- **GTFS-Realtime APIs** → Kafka Producers  
-- **Kafka Consumers** → Bronze (raw JSON batch storage)  
-- **Spark Structured Streaming** → Silver (cleaned & enriched data)  
-- **Delta Lake** → Gold (analytics-ready tables)  
-- **Power BI** → Visualization & KPIs  
-
-Architecture and data flow diagrams are included in the `architecture/` folder.
+*Key features:*
+- Real-time ingestion of *vehicle positions* and *trip updates*  
+- Kafka-based *Bronze → Silver → Gold streaming architecture*  
+- Batch and streaming transformations using *PySpark*  
+- Delta Lake storage for historical and analytical queries  
+- Live monitoring of vehicle/trip alerts  
+- Scalable architecture for extending to other transit APIs  
 
 ---
 
-## Bronze Layer – Real-Time Kafka Ingestion
-
-The Bronze layer focuses on **raw, lossless ingestion** of live MBTA data.
-
-**Components**
-- Trip Updates Producer → streams live trip changes to Kafka
-- Vehicle Positions Producer → streams live vehicle locations to Kafka
-- Trip Updates Consumer → batches and persists raw trip data as JSON
-- Vehicle Positions Consumer → batches and persists raw vehicle data as JSON
-
-**Output**
-- Append-only JSON files for replayability and downstream processing
-- Live terminal logs confirming streaming activity
-
-
+## 🛠 Tech Stack
+- *Python 3.x*  
+- *Kafka* (confluent_kafka)  
+- *GTFS Realtime Protocol Buffers* (google.transit.gtfs_realtime_pb2)  
+- *PySpark* (Structured Streaming)  
+- *Delta Lake*  
+- *Pandas* & colorama for alert dashboards  
+- *JSON* for intermediate storage  
+- OS: Windows / Cross-platform  
 
 ---
 
-## Silver Layer – Cleaning, Enrichment & Alerts
+## ⚙️ Installation & Setup
+1. *Clone the repository*  
+```bash
+git clone <your-repo-url>
+cd real-time-transit-analytics
+```
+2.	Create a Python virtual environment
+```
+python -m venv venv
+source venv/bin/activate  # Linux/Mac
+venv\Scripts\activate     # Windows
+```
+3.	Install dependencies
+```
+ pip install -r requirements.txt
+```
+4.	Start Kafka and create topics: vehicle_positions, trip_updates, silver_vehicle_positions, silver_trip_updates
 
-The Silver layer standardizes and enriches raw data.
+⸻
 
-**Processing**
-- Kafka-based Silver producer + consumer for structured handoff
-- Spark Structured Streaming for schema enforcement and cleaning
-- Cleaned streaming output written as structured JSON
+▶️ Usage Examples
 
-**Operational Alerts**
-- Pandas-based live alerting layer
-- Real-time terminal dashboard highlighting high-activity routes, trips, and vehicles
+1️⃣ Vehicle Positions Producer
 
+python vehicle_positions_producer.py
 
+	•	Fetches live vehicle positions every 5s
+	•	Sends events to Kafka topic vehicle_positions
 
----
+2️⃣ Trip Updates Producer
 
-## Gold Layer – Analytics-Ready Streaming Output
+python trip_updates_producer.py
 
-The Gold layer combines cleaned streams into a **Delta Lake table** optimized for analytics.
+	•	Fetches live trip updates every 5s
+	•	Sends events to Kafka topic trip_updates
 
-**Features**
-- Unified vehicle + trip stream
-- Time-based enrichment (hour, AM/PM, day of week)
-- Continuous streaming writes to Delta
-- Live console output for real-time verification
+3️⃣ Bronze Consumers
 
-Gold outputs are stored in Delta format and used directly by BI tools.
+python vehicle_positions_consumer.py
+python trip_updates_consumer.py
 
----
+	•	Consumes raw Kafka messages
+	•	Saves batch JSON files for downstream processing
 
-## Power BI Dashboard
+4️⃣ Silver Streaming
 
-The final Gold dataset feeds a Power BI dashboard showcasing:
-- Hourly trip distribution
-- Route-level activity trends
-- Vehicle movement patterns
+python silver_producer_consumer.py
+python silver_transform.py
 
+	•	Cleans and validates Bronze data
+	•	Writes processed Silver data to disk/Kafka
 
+5️⃣ Silver Alerts Dashboard
 
----
+python silver_alerts.py
 
-## Skills Demonstrated
+	•	Monitors Silver layer in real-time
+	•	Displays top routes, trips, and alerts
 
-- Real-time streaming with Kafka (producers & consumers)
-- Spark Structured Streaming (file-based & Delta streaming)
-- Bronze / Silver / Gold data architecture
-- Delta Lake for analytics-ready storage
-- Python (Kafka, Spark, Pandas)
-- Operational alerting and BI visualization
+6️⃣ Gold Streaming
+
+python gold_streaming.py
+
+	•	Combines Silver streams
+	•	Writes aggregated metrics to Delta Lake
+	•	Outputs unified analytics for dashboards
+
+⸻
+
+## 📝 Notes
+•	Kafka topics must exist before running consumers
+
+•	Batch sizes and flush intervals can be tuned
+
+•	Designed for scalable, real-time transit analytics
+
+•	Easily extendable to other GTFS-realtime city feeds
+
