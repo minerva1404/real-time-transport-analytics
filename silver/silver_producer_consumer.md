@@ -30,7 +30,7 @@ BRONZE_TRIP_TOPIC = "trip_updates"
 SILVER_VEHICLE_TOPIC = "silver_vehicle_positions"
 SILVER_TRIP_TOPIC = "silver_trip_updates"
 
-OUTPUT_DIR = "C:/Users/Angel/OneDrive/Desktop/real-time-transport-analytics/data/silver_landing"
+OUTPUT_DIR = "C:/real-time-transport-analytics/data/silver_landing"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 # -------------------------
