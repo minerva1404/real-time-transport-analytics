@@ -35,7 +35,7 @@ print("🚍 Vehicle Positions Bronze Consumer started...")
 # -----------------------
 # Output path
 # -----------------------
-OUTPUT_DIR = "C:/Users/Angel/OneDrive/Desktop/real-time-transport-analytics/Data/bronze/vehicle_positions"
+OUTPUT_DIR = "C:/real-time-transport-analytics/Data/bronze/vehicle_positions"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 # -----------------------
