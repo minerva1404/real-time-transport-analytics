@@ -128,10 +128,10 @@ def main() -> None:
     try:
         logger.info("Starting Spark session...")
         spark = create_spark_session()
-        VEHICLE_PATH = "C:/Users/Angel/OneDrive/Desktop/real-time-transport-analytics/data/silver_cleaned/vehicle_positions"
-        TRIP_PATH = "C:/Users/Angel/OneDrive/Desktop/real-time-transport-analytics/data/silver_cleaned/trip_updates"
-        GOLD_OUTPUT_PATH = "C:/Users/Angel/OneDrive/Desktop/real-time-transport-analytics/data/gold_delta_combined"
-        CHECKPOINT_PATH = "C:/Users/Angel/OneDrive/Desktop/real-time-transport-analytics/spark-checkpoints/gold_combined_metrics"
+        VEHICLE_PATH = "C:/real-time-transport-analytics/data/silver_cleaned/vehicle_positions"
+        TRIP_PATH = "C:/real-time-transport-analytics/data/silver_cleaned/trip_updates"
+        GOLD_OUTPUT_PATH = "C:/real-time-transport-analytics/data/gold_delta_combined"
+        CHECKPOINT_PATH = "C:/real-time-transport-analytics/spark-checkpoints/gold_combined_metrics"
         
         logger.info("Reading streams...")
         vehicle_df, trip_df = read_streams(spark, VEHICLE_PATH, TRIP_PATH)
