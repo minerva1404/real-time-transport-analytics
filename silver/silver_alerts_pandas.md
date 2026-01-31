@@ -24,7 +24,7 @@ import platform
 # Initialize colorama
 init(autoreset=True)
 
-INPUT_DIR = "C:/Users/Angel/OneDrive/Desktop/real-time-transport-analytics/data/silver_cleaned"
+INPUT_DIR = "C:/real-time-transport-analytics/data/silver_cleaned"
 vehicle_alerts = defaultdict(int)
 trip_alerts = defaultdict(int)
 
