@@ -28,9 +28,9 @@ spark.sparkContext.setLogLevel("WARN")
 # --------------------------------------------------
 # Paths
 # --------------------------------------------------
-INPUT_DIR = "C:/Users/Angel/OneDrive/Desktop/real-time-transport-analytics/data/silver_landing"
-OUTPUT_DIR = "C:/Users/Angel/OneDrive/Desktop/real-time-transport-analytics/data/silver_cleaned"
-CHECKPOINT_DIR = "C:/Users/Angel/OneDrive/Desktop/real-time-transport-analytics/spark-checkpoints/silver_transformer"
+INPUT_DIR = "C:/real-time-transport-analytics/data/silver_landing"
+OUTPUT_DIR = "C:/real-time-transport-analytics/data/silver_cleaned"
+CHECKPOINT_DIR = "C:/real-time-transport-analytics/spark-checkpoints/silver_transformer"
 
 # --------------------------------------------------
 # Schemas
