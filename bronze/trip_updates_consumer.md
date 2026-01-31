@@ -36,7 +36,7 @@ print("🚦 Trip Updates Bronze Consumer started...")
 # -----------------------
 # Output path
 # -----------------------
-OUTPUT_DIR = "C:/Users/Angel/OneDrive/Desktop/real-time-transport-analytics/Data/bronze/trip_updates"
+OUTPUT_DIR = "C:/real-time-transport-analytics/Data/bronze/trip_updates"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 # -----------------------
