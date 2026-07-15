@@ -1,14 +1,30 @@
-### Vehicle Positions Consumer 📥
+## 📥 Vehicle Positions Consumer
 
-The **Vehicle Positions Consumer** reads real-time vehicle events from the Kafka topic `vehicle_positions` and persists them into the **Bronze layer** as batched JSON files.
+### Purpose:
 
-Key responsibilities:
-- Consumes high-frequency vehicle location streams using a dedicated Kafka consumer group.
-- Parses GTFS-Realtime vehicle messages into structured JSON records.
-- Batches incoming events based on **size and time thresholds** to balance latency and write efficiency.
-- Writes append-only JSON files to Bronze storage, ensuring **fault tolerance and replayability**.
-- Acts as the **raw persistence layer** for all downstream Spark processing, alerts, and analytics.
-- Designed to handle noisy, high-volume feeds without data loss or backpressure issues.
+The Vehicle Positions Consumer subscribes to the Kafka topic vehicle_positions and persists incoming streaming events into the Bronze layer as append-only JSON files.
+
+Its primary objective is to establish a durable raw data store that preserves every vehicle event for replayability, lineage, and downstream Spark processing.
+
+---
+
+## Key Responsibilities
+
+* Consumes vehicle position events from the Kafka topic vehicle_positions.
+* Parses GTFS-Realtime vehicle messages into structured JSON records.
+* Buffers streaming events using configurable batch-size and time-based thresholds.
+* Persists append-only JSON files to Bronze storage.
+* Preserves raw event fidelity without applying business transformations.
+* Supports downstream Silver transformations, operational alerts, and analytical processing.
+
+---
+
+## Pipeline Role
+
+The Vehicle Positions Consumer functions as the Bronze ingestion service within the Medallion Architecture. It converts high-frequency Kafka streams into durable Bronze datasets while balancing write efficiency and processing latency through micro-batch persistence. This approach provides reliable historical storage without sacrificing real-time responsiveness.
+
+---
+## Code:
 
 ```python code
 from confluent_kafka import Consumer
@@ -94,6 +110,7 @@ while True:
             BATCH.clear()
             last_flush_time = time.time()
 ```
+---
 
 Output:
 <img width="1920" height="1080" alt="vehicle_position_c" src="https://github.com/user-attachments/assets/2d23a1c5-5287-4ce0-963e-cc613f8c4218" />
