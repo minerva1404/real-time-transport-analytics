@@ -72,5 +72,5 @@ while True:
 ```
 ---
 
-Output:
+## Output:
 <img width="1920" height="1080" alt="trip_updates_p" src="https://github.com/user-attachments/assets/7f05a244-9031-4d83-8cb2-3c771a8d7298" />
