@@ -76,34 +76,17 @@ Operational Dashboards
 
 ---
 
-## Installation
+## 📈 Key Business Insights
 
-1. *Clone the repository*
-	```bash
-	git clone <your-repo-url>
-	cd real-time-transit-analytics
- 	```
- 
-2.	Set up a virtual environment
-	```bash
-	python -m venv venv
-	# Activate the environment
-	source venv/bin/activate  # Linux / Mac
-	venv\Scripts\activate     # Windows
-	```
- 
-3.	Install dependencies
-	   ```bash
-		pip install -r requirements.txt
-		
-    
-4.	Start Kafka and create topics
-	```
-	vehicle_positions
-	trip_updates
-	silver_vehicle_positions
-	silver_trip_updates
-	```
+The pipeline generated several operational insights from live transit data:
+
+* 🚍 Peak vehicle utilization reached 82.76%
+* 🛣️ Highest-performing route accounted for 2.01% of total trips
+* ⏰ 61.22% of all trips occurred during the busiest operating hour
+* 📅 Weekend traffic represented 68.22% of overall activity
+* 🌆 PM traffic accounted for 89.8% of trips compared to 10.2% during AM hours
+
+These metrics demonstrate how streaming pipelines can provide actionable operational intelligence for transit agencies.
 
 
 
