@@ -24,6 +24,7 @@ By performing minimal transformation before publishing, the producer preserves t
 The Vehicle Positions Producer acts as the streaming ingestion service of the pipeline. It bridges the external GTFS-Realtime API with Apache Kafka, ensuring that every vehicle position update is captured and delivered reliably. By maintaining a continuous stream of raw events, it enables scalable, fault-tolerant downstream processing throughout the Medallion Architecture.
 
 ---
+### Code:
 
 ```python code:
 from confluent_kafka import Producer
@@ -69,7 +70,7 @@ while True:
         print("❌ Producer error:", e)
         time.sleep(10)
 ```
-
+---
 
 Output:
 <img width="1920" height="1080" alt="vehicle_position_p" src="https://github.com/user-attachments/assets/9c170e7b-d62b-422c-b62d-2bacc2cce68e" />
