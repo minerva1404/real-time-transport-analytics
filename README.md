@@ -4,8 +4,22 @@ End-to-End Streaming Data Pipeline using Apache Kafka, PySpark Structured Stream
 
 A production-inspired real-time data engineering pipeline that ingests live GTFS-Realtime transit feeds, processes streaming events through a Medallion Architecture (Bronze → Silver → Gold), and delivers analytics-ready datasets for operational monitoring and decision-making.
 
-## Table of Contents
-- [project Overview](#project-overview)
+
+## 📑 Table of Contents
+
+- [Project Overview](#project-overview)
+- [Solution Architecture](#️-solution-architecture)
+- [Key Features](#-key-features)
+- [Project Highlights](#-project-highlights)
+- [Key Business Insights](#-key-business-insights)
+- [Technology Stack](#️-technology-stack)
+- [Repository Structure](#-repository-structure)
+- [Pipeline Workflow](#-pipeline-workflow)
+- [Getting Started](#-getting-started)
+- [Running the Pipeline](#️-running-the-pipeline)
+- [Engineering Decisions](#-engineering-decisions)
+- [Future Enhancements](#-future-enhancements)
+- [License](#-license)
 
 ## Project Overview
 
