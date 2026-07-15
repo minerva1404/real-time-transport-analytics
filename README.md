@@ -21,27 +21,28 @@ The pipeline follows the Medallion Architecture (Bronze → Silver → Gold), pr
 
 GTFS-Realtime Feed
           &#11015;
+		  
     Kafka Producers
-          │
-          ▼
+           &#11015;
+		   
      Kafka Topics
-          │
-          ▼
+           &#11015;
+		   
 PySpark Structured Streaming
-          │
-          ▼
+           &#11015;
+		   
  Bronze Layer (Raw Events)
-          │
-          ▼
+          &#11015;
+		  
  Silver Layer (Validated & Cleaned)
-          │
-          ▼
+           &#11015;
+		   
  Gold Layer (Business KPIs)
-          │
-          ▼
+           &#11015;
+		   
     Delta Lake Storage
-          │
-          ▼
+           &#11015;
+		   
  Operational Dashboards
 
  ---
