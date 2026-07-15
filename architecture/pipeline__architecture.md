@@ -1,55 +1,75 @@
-# Pipeline Architecture
+# 🏗️ Pipeline Architecture
 
-This project is designed as a **real-time, layered streaming pipeline** that ingests live public transport data and incrementally transforms it into **analytics-ready insights**.
+This project implements a production-inspired, real-time streaming data pipeline that ingests live public transportation events, processes them through a Medallion Architecture (Bronze → Silver → Gold), and delivers analytics-ready datasets for operational monitoring and business intelligence.
 
-Live **MBTA GTFS-Realtime feeds** (*Trip Updates* and *Vehicle Positions*) are streamed into **Apache Kafka**, where independent **producers and consumers** decouple ingestion from downstream processing.
-
-Raw events are first captured in the **Bronze layer** as **append-only JSON batches**, ensuring:
-- replayability  
-- fault tolerance  
-- zero data loss  
+Live MBTA GTFS-Realtime feeds—including Vehicle Positions and Trip Updates—are continuously ingested through Apache Kafka, where independent producers and consumers decouple data ingestion from downstream processing. As data flows through each layer, it is progressively validated, standardized, enriched, and optimized for analytics while maintaining scalability, fault tolerance, and data lineage.
 
 ---
 
-## Bronze Layer — Raw Ingestion
+## 🥉 Bronze Layer — Raw Data Ingestion
 
-The Bronze layer persists raw streaming events with **minimal transformation**.  
-This layer acts as the system’s **source of truth** and enables safe reprocessing.
+The Bronze layer captures raw streaming events with minimal transformation, preserving the original GTFS-Realtime payload exactly as it is received.
 
----
+This layer establishes the source of truth for the entire pipeline by creating immutable, replayable datasets that support reliable downstream processing.
 
-## Silver Layer — Cleaning & Enrichment
+### Key Characteristics
 
-The **Silver layer** processes Bronze data using **Spark Structured Streaming**, applying:
-
-- schema enforcement  
-- data cleaning & validation  
-- lightweight enrichment  
-
-This layer also includes a **Pandas-based live alerting system** that surfaces operational signals directly in the terminal for real-time observability.
+* Append-only raw JSON storage
+* High-throughput Kafka event ingestion
+* Replayable historical datasets
+* Fault-tolerant data persistence
+* Complete data lineage preservation
 
 ---
 
-## Gold Layer — Analytics Ready
+## 🥈 Silver Layer — Data Quality & Standardization
 
-The **Gold layer** aggregates and enriches the cleaned streams and writes them to **Delta Lake**, producing data optimized for analytics and BI workloads.
+The Silver layer transforms raw Bronze datasets into trusted, analytics-ready data using Spark Structured Streaming.
 
-Key characteristics:
-- time-based aggregations  
-- business-friendly fields  
-- optimized storage for querying  
+Incoming events undergo validation, cleansing, schema enforcement, and lightweight enrichment before being written to standardized Silver datasets. A lightweight Pandas-based live alerting module continuously monitors the processed data, providing real-time operational visibility and validating stream health.
+
+### Key Characteristics
+
+* Schema enforcement
+* Data validation and cleansing
+* Standardization and enrichment
+* Continuous stream processing
+* Real-time operational monitoring
+
+--- 
+
+## 🥇 Gold Layer — Business Analytics
+
+The Gold layer combines validated Silver datasets into a unified analytical model and stores the results in Delta Lake for business intelligence workloads.
+
+Additional temporal attributes, ingestion metadata, and business-friendly fields are generated to support both real-time and historical analytics while maintaining ACID-compliant storage and fault tolerance.
+
+### Key Characteristics
+
+* Unified analytical data model
+* Business KPI generation
+* Temporal feature engineering
+* Delta Lake storage
+* Query-optimized analytical datasets
 
 ---
 
-## Analytics & Consumption
+### 📊 Analytics & Business Consumption
 
-The Gold outputs are consumed by **Power BI**, enabling:
-- real-time monitoring  
-- historical trend analysis  
-- operational transport insights  
+The analytics-ready Gold datasets power Power BI dashboards, enabling transportation operators to monitor fleet performance and derive operational insights from continuously updated streaming data.
+
+The resulting dashboards support:
+
+* Real-time operational monitoring
+* Historical trend analysis
+* Vehicle utilization tracking
+* Route performance analysis
+* Peak traffic identification
+* Operational decision-making
 
 ---
 
-The diagram below illustrates the **end-to-end data flow** and the responsibilities of each layer in the pipeline.
+The diagram below illustrates the complete end-to-end streaming architecture and the responsibilities of each layer within the Medallion Architecture.
+
 
 ![Pipeline_Architecture](https://github.com/user-attachments/assets/9c0c1101-b2b8-43fa-a56c-00d8ea385208)
