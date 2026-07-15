@@ -1,15 +1,32 @@
-### Trip Updates Producer 🚦
+## 🚦 Trip Updates Producer
 
-The **Trip Updates Producer** ingests live trip-level operational data from the MBTA GTFS-Realtime feed, including delays, schedule changes, and stop-level updates.
+### Purpose:
 
-Key responsibilities:
-- Streams real-time **trip update events** into the Kafka topic `trip_updates`.
-- Extracts GTFS trip update entities with minimal transformation.
-- Publishes events at a controlled polling interval to avoid API throttling.
-- Preserves the full structure of the original feed for downstream processing.
-- Provides the foundation for **service reliability analysis** and operational monitoring.
+The Trip Updates Producer continuously retrieves live trip update events from the MBTA GTFS-Realtime feed and streams them into the Kafka topic trip_updates.
 
-Code:
+The producer captures schedule updates, delays, and stop-level changes with minimal processing, ensuring that downstream consumers receive a complete and accurate representation of the operational transit feed.
+
+---
+
+## Key Responsibilities
+
+* Retrieves live trip update events from the MBTA GTFS-Realtime API.
+* Publishes serialized trip update messages to the Kafka topic trip_updates.
+* Preserves the original GTFS-Realtime event structure.
+* Controls polling intervals to prevent API throttling.
+* Implements reliable error handling and automatic retry logic.
+* Provides the streaming foundation for service reliability analytics and operational monitoring.
+
+---
+
+## Pipeline Role
+
+The Trip Updates Producer serves as the real-time trip event ingestion service for the streaming pipeline. It continuously delivers operational schedule updates into Kafka, enabling downstream consumers to analyze service delays, trip progression, and transit reliability while maintaining the integrity of the original data stream.
+
+---
+
+## Code:
+
 ```python
 from confluent_kafka import Producer
 import requests
@@ -53,6 +70,7 @@ while True:
         print("❌ Producer error:", e)
         time.sleep(10)
 ```
+---
 
 Output:
 <img width="1920" height="1080" alt="trip_updates_p" src="https://github.com/user-attachments/assets/7f05a244-9031-4d83-8cb2-3c771a8d7298" />
