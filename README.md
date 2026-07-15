@@ -15,7 +15,7 @@ A production-inspired real-time data engineering pipeline that ingests live GTFS
 - [Technology Stack](#️-technology-stack)
 - [Repository Structure](#-repository-structure)
 - [Pipeline Workflow](#-pipeline-workflow)
-- [Setup and Installation](#-Setup-and-Installation)
+- [Setup and Installation](#-setup-and-installation)
 - [Running the Pipeline](#️-running-the-pipeline)
 - [Engineering Decisions](#-engineering-decisions)
 - [Future Enhancements](#-future-enhancements)
