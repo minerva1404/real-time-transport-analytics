@@ -33,7 +33,7 @@ Spark Structured Streaming\
       ↓\
 Silver Cleaned Storage\
 |\
-|-->Live Alerts\ 
+|-->Live Alerts \
 |-->Gold Layer
 
 ---
