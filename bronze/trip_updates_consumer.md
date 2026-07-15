@@ -1,16 +1,31 @@
-### Trip Updates Consumer 📥
+## 📥 Trip Updates Consumer
 
-The **Trip Updates Consumer** processes trip-level events from Kafka and stores them as raw Bronze data for replayable stream processing.
+### Purpose:
 
-Key responsibilities:
-- Consumes trip update messages from the `trip_updates` Kafka topic.
-- Extracts key trip attributes such as route ID, trip ID, and stop update counts.
-- Batches messages efficiently before persisting them to Bronze storage.
-- Writes append-only JSON files to maintain a reliable historical record.
-- Enables downstream Spark jobs to analyze delays, service disruptions, and trip patterns.
-- Complements vehicle position data to provide a complete operational view of the network.
+The Trip Updates Consumer subscribes to the Kafka topic trip_updates and stores incoming trip-level events as raw Bronze datasets for reliable downstream processing.
 
-Code:
+By persisting append-only JSON files, the consumer creates a replayable historical record that supports data lineage, fault recovery, and scalable Spark transformations.
+
+---
+
+## Key Responsibilities
+
+* Consumes trip update events from the Kafka topic trip_updates.
+* Extracts key trip attributes including route ID, trip ID, and stop update counts.
+* Buffers incoming events using configurable batch-size and time-based flushing.
+* Persists append-only JSON files within the Bronze layer.
+* Preserves raw event integrity without introducing business logic.
+* Enables downstream analytics for delays, service disruptions, and trip performance monitoring.
+
+---
+
+## Pipeline Role
+
+The Trip Updates Consumer acts as the Bronze persistence service for trip-level operational events. By efficiently batching and storing streaming data, it creates a durable historical dataset that supports replayability, fault tolerance, and reliable downstream transformations while complementing vehicle position data to provide a comprehensive operational view of the transit network.
+---
+
+## Code:
+
 ```python
 from confluent_kafka import Consumer
 from google.transit import gtfs_realtime_pb2
@@ -96,6 +111,7 @@ while True:
             BATCH.clear()
             last_flush_time = time.time()
 ```
+---
 
 Output:
 <img width="1920" height="1080" alt="Trip_updates_c" src="https://github.com/user-attachments/assets/747168b0-2991-41ab-8758-4e5aec5ead39" />
