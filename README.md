@@ -46,12 +46,20 @@ The pipeline follows the Medallion Architecture (Bronze → Silver → Gold), pr
 	Operational Dashboards
 
  ---
-## Key Achievements
-- Processed *1K–3K daily vehicle events* with *<10-minute latency*.  
-- Top route handled *2.01%* of total trips; peak vehicle utilization reached *82.76%*.  
-- Busiest hour contained *61.22% of trips, weekend demand was **68.22%, PM traffic *89.8% vs 10.2% AM*.  
-- Built *end-to-end Bronze-Silver-Gold pipeline* with *validation, deduplication, and KPI computation*.  
-- Scalable and fault-tolerant architecture, extendable to other city transit feeds.
+## ✨ Key Features
+
+* Real-time ingestion of GTFS-Realtime vehicle positions and trip updates
+* Apache Kafka–based event streaming architecture
+* PySpark Structured Streaming with micro-batch processing
+* Bronze → Silver → Gold Medallion Architecture
+* Delta Lake storage with ACID guarantees
+* Automated data validation and quality checks
+* Schema enforcement and duplicate removal
+* Route performance analytics
+* Vehicle utilization monitoring
+* Peak traffic analysis
+* Analytics-ready Gold layer for BI dashboards
+* Modular and fault-tolerant pipeline design
 
 ---
 
