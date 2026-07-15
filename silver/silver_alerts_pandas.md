@@ -1,16 +1,25 @@
-### Silver Alerts (Pandas – Live Terminal Dashboard) 🚨
+## Silver Alerts (Pandas – Live Terminal Dashboard) 🚨
 
-The **Silver Alerts module** provides real-time operational visibility directly from cleaned Silver data.
+### Purpose
 
-Key responsibilities:
-- Continuously monitors newly generated Silver batches using Pandas.
-- Surfaces live insights such as high-frequency routes, trips with many stop updates, and vehicle activity.
-- Displays rolling statistics and alerts directly in the terminal for quick inspection.
-- Acts as a lightweight, low-latency monitoring layer alongside Spark processing.
-- Demonstrates real-time observability without requiring external dashboards.
-- Validates data quality and stream health before Gold aggregation.
+The Silver Alerts module provides real-time operational monitoring directly from the cleaned Silver datasets. Using Pandas, it continuously scans newly generated batches and presents live operational statistics through an interactive terminal dashboard.
 
-Code:
+This lightweight observability layer enables rapid validation of stream health without relying on external dashboarding platforms.
+
+### Key Responsibilities
+
+* Continuously monitors newly generated Silver datasets.
+* Detects high-frequency routes and active vehicle streams.
+* Identifies trips with the highest stop update counts.
+* Displays rolling operational statistics in real time.
+* Supports lightweight monitoring of pipeline health.
+* Validates cleaned data before Gold aggregation.
+
+### Pipeline Role
+
+The Silver Alerts module serves as the observability layer of the streaming pipeline. By surfacing live operational metrics directly in the terminal, it enables rapid inspection of data quality, stream activity, and overall pipeline performance during continuous processing.
+
+### Source Code:
 ```python
 import os
 import json
@@ -100,7 +109,7 @@ if __name__ == "__main__":
     main()
 ```
 
-Output:
+### Output:
 
 <img width="1920" height="1080" alt="silver_alerts1" src="https://github.com/user-attachments/assets/539c1d35-b5ae-4f38-8fbc-7f363bf822fd" />
 
