@@ -63,11 +63,16 @@ Operational Dashboards
 
 ---
 
-## Tech Stack
-- *Languages & Libraries:* Python 3.x, PySpark, Pandas  
-- *Streaming & Storage:* Apache Kafka, Delta Lake  
-- *Data Formats:* JSON, GTFS Realtime Protocol Buffers  
-- *OS:* Cross-platform  
+## 📊 Project Highlights
+
+Metric	Value
+Daily Events Processed	1K–3K
+End-to-End Latency	<10 Minutes
+Streaming Framework	Apache Kafka + Spark Structured Streaming
+Storage Layer	Delta Lake
+Pipeline Architecture	Bronze → Silver → Gold
+Data Processing	Streaming + Micro-Batch
+Domain	Public Transportation
 
 ---
 
