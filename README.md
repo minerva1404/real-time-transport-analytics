@@ -128,12 +128,12 @@ These metrics demonstrate how streaming pipelines can provide actionable operati
 
 ## 📂 Repository Structure
 
-real-time-transport-analytics/
-├── architecture/
-├── bronze/
-├── silver/
-├── gold/
-├── dashboard/
+real-time-transport-analytics/\
+├── architecture/\
+├── bronze/\
+├── silver/\
+├── gold/\
+├── dashboard/\
 └── README.md
 
 ---
@@ -182,10 +182,10 @@ cd real-time-transport-analytics
 
 2. Create a Virtual Environment
 
-python -m venv venv
-#Linux / macOS
-source venv/bin/activate
-#Windows
+python -m venv venv\
+#Linux / macOS\
+source venv/bin/activate\
+#Windows\
 venv\Scripts\activate
 
 ⸻
