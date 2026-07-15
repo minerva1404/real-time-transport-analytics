@@ -68,10 +68,7 @@ By performing minimal transformation before publishing, the producer preserves t
 
 The Vehicle Positions Producer acts as the streaming ingestion service of the pipeline. It bridges the external GTFS-Realtime API with Apache Kafka, ensuring every vehicle position update is captured and delivered reliably for downstream processing.
 
-Source Code:
-```bash
-vehicle_positions_producer.py
-```
+
 Console Output:
 
 <img width="1920" height="1080" alt="vehicle_position_p" src="https://github.com/user-attachments/assets/9c170e7b-d62b-422c-b62d-2bacc2cce68e" />
@@ -99,11 +96,7 @@ Its primary objective is to establish a durable raw data store that preserves ev
 
 The Vehicle Positions Consumer functions as the Bronze persistence service within the Medallion Architecture. It efficiently converts streaming Kafka events into durable raw datasets while balancing latency and write efficiency through micro-batch persistence.
 
-Source Code:
-```bash
-vehicle_positions_consumer.py
-```
-Console Output:
+### Console Output:
 <img width="1920" height="1080" alt="vehicle_position_c" src="https://github.com/user-attachments/assets/2d23a1c5-5287-4ce0-963e-cc613f8c4218" />
 
 ---
@@ -129,11 +122,7 @@ The producer captures schedule updates, delays, and stop-level changes with mini
 
 The Trip Updates Producer serves as the real-time trip event ingestion service for the streaming pipeline. It continuously delivers operational schedule updates into Kafka while maintaining the integrity of the original transit data.
 
-Source Code:
-```bash
-trip_updates_producer.py
-```
-Console Output:
+### Console Output:
 
 <img width="1920" height="1080" alt="trip_updates_p" src="https://github.com/user-attachments/assets/7f05a244-9031-4d83-8cb2-3c771a8d7298" />
 
@@ -160,11 +149,7 @@ By persisting append-only JSON files, the consumer creates a replayable historic
 
 The Trip Updates Consumer acts as the Bronze persistence service for trip-level operational events. By efficiently batching and storing streaming data, it creates a durable historical dataset that supports replayability, fault tolerance, and reliable downstream transformations.
 
-Source Code:
-```bash
-trip_updates_consumer.py
-```
-Console Output:
+### Console Output:
 
 <img width="1920" height="1080" alt="Trip_updates_c" src="https://github.com/user-attachments/assets/747168b0-2991-41ab-8758-4e5aec5ead39" />
 
