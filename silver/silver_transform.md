@@ -108,7 +108,7 @@ trip_clean.writeStream \
 spark.streams.awaitAnyTermination()
 ```
 
-Output:
+### Output:
 <img width="1920" height="1080" alt="silver_transform2" src="https://github.com/user-attachments/assets/87567120-810c-4ad9-beaf-5ac8782c6d69" />
 
 <img width="1920" height="1080" alt="silver_transform1" src="https://github.com/user-attachments/assets/2f4794de-5905-4b23-9d72-4c4e46645727" />
