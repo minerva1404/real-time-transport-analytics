@@ -1,16 +1,25 @@
-### Silver Producer & Consumer 🔁
+## 🔁 Silver Producer & Consumer
 
-The **Silver Producer & Consumer** bridges raw Bronze streams with cleaned Silver storage and Kafka topics.
+### Purpose
 
-Key responsibilities:
-- Consumes raw vehicle positions and trip updates from Bronze Kafka topics.
-- Normalizes and converts GTFS-Realtime messages into structured JSON records.
-- Publishes cleaned events to **Silver Kafka topics** for downstream processing.
-- Batches and persists intermediate data to a Silver landing zone for Spark ingestion.
-- Decouples raw ingestion from transformation, improving **scalability and fault isolation**.
-- Enables parallel processing of vehicle and trip streams in a controlled, reliable manner.
+The Silver Producer & Consumer acts as the orchestration layer between Bronze ingestion and Silver transformation. It consumes raw vehicle position and trip update events from Bronze Kafka topics, converts them into structured JSON records, republishes them to dedicated Silver Kafka topics, and persists intermediate datasets for Spark processing.
 
-Code:
+This separation improves scalability, enables independent processing stages, and reduces coupling between ingestion and transformation.
+
+### Key Responsibilities
+
+* Consumes raw vehicle position and trip update events from Bronze Kafka topics.
+* Converts GTFS-Realtime messages into structured JSON records.
+* Publishes standardized events to dedicated Silver Kafka topics.
+* Persists batched datasets to the Silver landing zone.
+* Decouples raw ingestion from downstream Spark transformations.
+* Enables scalable, fault-tolerant stream processing.
+
+### Pipeline Role
+
+The Silver Producer & Consumer serves as the transition layer between raw ingestion and structured transformation. By organizing streaming events into standardized datasets before Spark processing, it improves pipeline modularity, scalability, and fault isolation.
+
+### Source Code:
 ```python
 from confluent_kafka import Producer, Consumer
 from google.transit import gtfs_realtime_pb2
