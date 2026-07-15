@@ -14,6 +14,38 @@ The pipeline follows the Medallion Architecture (Bronze → Silver → Gold), pr
 
 ---
 
+## 🏗️ Solution Architecture
+
+<img width="1536" height="1024" alt="Pipeline_Architecture" src="https://github.com/user-attachments/assets/b2fb6599-7937-4a34-abb2-ee630cf65120" />
+
+
+GTFS-Realtime Feed
+          │
+          ▼
+    Kafka Producers
+          │
+          ▼
+     Kafka Topics
+          │
+          ▼
+PySpark Structured Streaming
+          │
+          ▼
+ Bronze Layer (Raw Events)
+          │
+          ▼
+ Silver Layer (Validated & Cleaned)
+          │
+          ▼
+ Gold Layer (Business KPIs)
+          │
+          ▼
+    Delta Lake Storage
+          │
+          ▼
+ Operational Dashboards
+
+ ---
 ## Key Achievements
 - Processed *1K–3K daily vehicle events* with *<10-minute latency*.  
 - Top route handled *2.01%* of total trips; peak vehicle utilization reached *82.76%*.  
