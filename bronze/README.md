@@ -69,7 +69,7 @@ By performing minimal transformation before publishing, the producer preserves t
 The Vehicle Positions Producer acts as the streaming ingestion service of the pipeline. It bridges the external GTFS-Realtime API with Apache Kafka, ensuring every vehicle position update is captured and delivered reliably for downstream processing.
 
 
-Console Output:
+### Console Output:
 
 <img width="1920" height="1080" alt="vehicle_position_p" src="https://github.com/user-attachments/assets/9c170e7b-d62b-422c-b62d-2bacc2cce68e" />
 
