@@ -15,7 +15,7 @@ A production-inspired real-time data engineering pipeline that ingests live GTFS
 - [Technology Stack](#️-technology-stack)
 - [Repository Structure](#-repository-structure)
 - [Pipeline Workflow](#-pipeline-workflow)
-- [Setup and Installation](#-setup-and-installation)
+- [Getting Started](#-getting-started)
 - [Running the Pipeline](#️-running-the-pipeline)
 - [Engineering Decisions](#-engineering-decisions)
 - [Future Enhancements](#-future-enhancements)
@@ -165,7 +165,7 @@ These datasets are optimized for dashboarding and business reporting.
 
 ---
 
-## 🛠️ Setup and Installation
+## 🚀 Getting Started
 
 1. Clone the Repository
 ```bash
