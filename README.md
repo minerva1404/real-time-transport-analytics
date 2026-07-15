@@ -88,40 +88,42 @@ The pipeline generated several operational insights from live transit data:
 
 These metrics demonstrate how streaming pipelines can provide actionable operational intelligence for transit agencies.
 
+---
 
+## ⚙️ Technology Stack
 
-## Usage
+### Programming
 
-### 1️⃣ Producers
+* Python
+* SQL
+* PySpark
+* Pandas
 
-Fetch live vehicle and trip data and send to Kafka topics every 5 seconds.
+### Streaming & Messaging
 
-python producers/vehicle_positions_producer.py
-python producers/trip_updates_producer.py
+* Apache Kafka
+* Spark Structured Streaming
 
-### 2️⃣ Bronze Consumers
+### Storage
 
-Consume raw Kafka messages and save batch JSON files for downstream processing.
+* Delta Lake
+* JSON
 
-python consumers/vehicle_positions_consumer.py
-python consumers/trip_updates_consumer.py
+### Data Formats
 
-### 3️⃣ Silver Processing
+* GTFS-Realtime Protocol Buffers
+* JSON
 
-Clean, validate, and transform Bronze data into analytics-ready format.
+### Engineering Concepts
 
-python silver/silver_producer_consumer.py
-python silver/silver_transform.py
+* Medallion Architecture
+* ETL / ELT Pipelines
+* Micro-Batch Processing
+* Streaming Analytics
+* Data Validation
+* Data Quality Engineering
+* Fault Tolerance
 
-### 4️⃣ Gold Aggregation
-
-Aggregate Silver streams into Delta Lake and compute KPIs.
-
-python gold/gold_streaming.py
-
-### 5️⃣ Dashboards
-
-Monitor top routes, alerts, and operational KPIs in near real-time.
-
+  
 python dashboards/silver_alerts.py
 
