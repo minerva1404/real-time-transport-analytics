@@ -65,14 +65,14 @@ Operational Dashboards
 
 ## 📊 Project Highlights
 
-Metric	Value
-Daily Events Processed	1K–3K
-End-to-End Latency	<10 Minutes
-Streaming Framework	Apache Kafka + Spark Structured Streaming
-Storage Layer	Delta Lake
-Pipeline Architecture	Bronze → Silver → Gold
-Data Processing	Streaming + Micro-Batch
-Domain	Public Transportation
+*Metric	Value
+*Daily Events Processed	1K–3K
+*End-to-End Latency	<10 Minutes
+*Streaming Framework	Apache Kafka + Spark Structured Streaming
+*Storage Layer	Delta Lake
+*Pipeline Architecture	Bronze → Silver → Gold
+*Data Processing	Streaming + Micro-Batch
+*Domain	Public Transportation
 
 ---
 
