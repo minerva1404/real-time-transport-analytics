@@ -183,9 +183,9 @@ cd real-time-transport-analytics
 2. Create a Virtual Environment
 
 python -m venv venv
-# Linux / macOS
+#Linux / macOS
 source venv/bin/activate
-# Windows
+#Windows
 venv\Scripts\activate
 
 ⸻
