@@ -1,15 +1,26 @@
-### Power BI Dashboard — Real-Time Transport Insights 📊
+## 📊 Power BI Dashboard — Operational Transport Analytics
 
-The **Power BI dashboard** provides an interactive view of real-time and historical MBTA transport performance, built directly on top of the Gold Delta tables.
+### Purpose
 
-Key highlights:
-- Visualizes **route-level activity**, vehicle movement patterns, and trip volumes over time.
-- Displays **hourly and daily distributions** to identify peak operational periods.
-- Enables quick comparison of service patterns across routes and time windows.
-- Designed for low-latency refresh, supporting near real-time monitoring.
-- Combines spatial and temporal insights to support operational decision-making.
-- Demonstrates end-to-end ownership from streaming ingestion to business intelligence.
+The Power BI Dashboard serves as the business intelligence layer of the project, transforming Gold-layer Delta Lake datasets into interactive visualizations for operational monitoring and decision-making.
 
-Output:
+Built directly on top of the analytics-ready Gold tables, the dashboard provides both real-time operational visibility and historical trend analysis, demonstrating the complete journey from streaming data ingestion to actionable business insights.
+
+### Key Features
+
+* Visualizes route-level activity and vehicle movement patterns.
+* Monitors trip volumes across different operating periods.
+* Analyzes hourly and daily transit distributions.
+* Highlights peak operational periods and service utilization.
+* Enables comparison of route performance across multiple time windows.
+* Supports near real-time dashboard refresh using continuously updated Gold datasets.
+* Demonstrates end-to-end integration from Kafka streaming to business intelligence.
+
+### Business Value
+
+The dashboard enables transportation operators and analysts to quickly identify service patterns, monitor fleet performance, evaluate operational efficiency, and make data-driven decisions using continuously refreshed analytics.
+
+
+## Dashboard Output:
 <img width="1920" height="1080" alt="dashboard" src="https://github.com/user-attachments/assets/354b5a23-1a87-44f6-89d9-a5f10b819c74" />
 
