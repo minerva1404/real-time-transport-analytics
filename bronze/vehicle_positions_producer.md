@@ -72,5 +72,5 @@ while True:
 ```
 ---
 
-Output:
+## Output:
 <img width="1920" height="1080" alt="vehicle_position_p" src="https://github.com/user-attachments/assets/9c170e7b-d62b-422c-b62d-2bacc2cce68e" />
