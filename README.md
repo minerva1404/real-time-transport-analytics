@@ -4,6 +4,9 @@ End-to-End Streaming Data Pipeline using Apache Kafka, PySpark Structured Stream
 
 A production-inspired real-time data engineering pipeline that ingests live GTFS-Realtime transit feeds, processes streaming events through a Medallion Architecture (Bronze → Silver → Gold), and delivers analytics-ready datasets for operational monitoring and decision-making.
 
+## Table of Contents
+- [project Overview](#project-overview)
+
 ## Project Overview
 
 Modern public transportation systems continuously generate high volumes of vehicle positions and trip updates. Processing these events in real time is essential for monitoring fleet operations, identifying service disruptions, understanding passenger demand, and improving transit efficiency.
