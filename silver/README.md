@@ -59,13 +59,9 @@ This separation improves scalability, enables independent processing stages, and
 
 The Silver Producer & Consumer serves as the transition layer between raw ingestion and structured transformation. It standardizes streaming events before they enter Spark Structured Streaming, ensuring downstream processing receives consistent, organized input while maintaining efficient batch-based persistence.
 
-Source Code:
-```bash
-silver_producer_consumer.py
-```
 Console Output:
 
-(Insert screenshot here.)
+<img width="1920" height="1080" alt="silver_pc" src="https://github.com/user-attachments/assets/14a25926-3faa-4755-926c-1902fde0e629" />
 
 ---
 
@@ -90,13 +86,16 @@ The result is a trusted dataset that serves as the direct input for Gold-level b
 
 The Silver Transformation module functions as the data quality engine of the pipeline. By combining schema enforcement, validation, and continuous processing, it produces reliable datasets suitable for business analytics while maintaining scalability through Spark Structured Streaming.
 
-Source Code
-```bash
-silver_transform.py
-```
+
 Console Output:
 
-(Insert screenshots here.)
+
+
+<img width="1920" height="1080" alt="silver_transform2" src="https://github.com/user-attachments/assets/87567120-810c-4ad9-beaf-5ac8782c6d69" />
+
+<img width="1920" height="1080" alt="silver_transform1" src="https://github.com/user-attachments/assets/2f4794de-5905-4b23-9d72-4c4e46645727" />
+
+<img width="1920" height="1080" alt="silver_alerts1" src="https://github.com/user-attachments/assets/539c1d35-b5ae-4f38-8fbc-7f363bf822fd" />
 
 ⸻
 
@@ -121,13 +120,11 @@ This lightweight monitoring layer enables rapid inspection of stream health with
 
 The Silver Alerts module acts as the operational observability layer of the streaming pipeline. It provides immediate feedback on incoming data quality and transit activity, enabling rapid validation of the pipeline while supporting operational monitoring during development and testing.
 
-Source Code:
-```bash
-silver_alerts.py
-```
 Console Output:
 
-(Insert screenshots here.)
+<img width="1920" height="1080" alt="silver_alerts2" src="https://github.com/user-attachments/assets/6ff92a94-9eaa-4bf5-a281-40829b04120c" />
+
+<img width="1920" height="1080" alt="silver_transform3" src="https://github.com/user-attachments/assets/0082ff5e-ae61-48d6-851c-2512b6bd54b9" />
 
 ---
 
