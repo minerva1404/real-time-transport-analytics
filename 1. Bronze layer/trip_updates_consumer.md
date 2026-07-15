@@ -22,6 +22,7 @@ By persisting append-only JSON files, the consumer creates a replayable historic
 ## Pipeline Role
 
 The Trip Updates Consumer acts as the Bronze persistence service for trip-level operational events. By efficiently batching and storing streaming data, it creates a durable historical dataset that supports replayability, fault tolerance, and reliable downstream transformations while complementing vehicle position data to provide a comprehensive operational view of the transit network.
+
 ---
 
 ## Code:
