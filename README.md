@@ -1,9 +1,15 @@
 # 🚆 Real-Time Transport Analytics
 
-## Project Overview
-This project implements a *real-time transit analytics platform* using GTFS-realtime feeds from MBTA (Massachusetts). It ingests live vehicle positions and trip updates, processes them through *Apache Kafka* and *Spark Structured Streaming*, and stores the results in *Delta Lake* for downstream analytics.  
+End-to-End Streaming Data Pipeline using Apache Kafka, PySpark Structured Streaming & Delta Lake
 
-The pipeline follows a *Bronze → Silver → Gold* architecture to ensure data quality, validation, and analytics-ready outputs, producing *operational KPIs* for vehicle utilization, route efficiency, and peak traffic patterns.
+A production-inspired real-time data engineering pipeline that ingests live GTFS-Realtime transit feeds, processes streaming events through a Medallion Architecture (Bronze → Silver → Gold), and delivers analytics-ready datasets for operational monitoring and decision-making.
+
+## Project Overview
+Modern public transportation systems continuously generate high volumes of vehicle positions and trip updates. Processing these events in real time is essential for monitoring fleet operations, identifying service disruptions, understanding passenger demand, and improving transit efficiency.
+
+This project demonstrates how a scalable streaming data pipeline can transform raw GTFS-Realtime data into trusted analytical datasets using Apache Kafka, PySpark Structured Streaming, and Delta Lake.
+
+The pipeline follows the Medallion Architecture (Bronze → Silver → Gold), progressively improving data quality through validation, cleansing, enrichment, and aggregation before serving operational KPIs for downstream analytics.
 
 ---
 
