@@ -175,7 +175,7 @@ These datasets are optimized for dashboarding and business reporting.
 
 1. Clone the Repository
 
-git clone <repository-url>
+git clone <repository-url> \
 cd real-time-transport-analytics
 
 ⸻
@@ -200,9 +200,9 @@ pip install -r requirements.txt
 
 Create the following Kafka topics:
 
-vehicle_positions
-trip_updates
-silver_vehicle_positions
+vehicle_positions\
+trip_updates\
+silver_vehicle_positions\
 silver_trip_updates
 
 ---
@@ -211,8 +211,8 @@ silver_trip_updates
 
 Step 1 — Start Producers
 
-python producers/vehicle_positions_producer.py
-python producers/trip_updates_producer.py
+python producers/vehicle_positions_producer.py\
+python producers/trip_updates_producer.py\
 
 Streams live GTFS-Realtime data into Kafka topics.
 
@@ -220,8 +220,8 @@ Streams live GTFS-Realtime data into Kafka topics.
 
 Step 2 — Bronze Consumers
 
-python consumers/vehicle_positions_consumer.py
-python consumers/trip_updates_consumer.py
+python consumers/vehicle_positions_consumer.py\
+python consumers/trip_updates_consumer.py\
 
 Consumes Kafka events and stores raw Bronze datasets.
 
@@ -229,8 +229,8 @@ Consumes Kafka events and stores raw Bronze datasets.
 
 Step 3 — Silver Processing
 
-python silver/silver_producer_consumer.py
-python silver/silver_transform.py
+python silver/silver_producer_consumer.py\
+python silver/silver_transform.py\
 
 Performs cleansing, validation, deduplication, and schema enforcement.
 
@@ -238,7 +238,7 @@ Performs cleansing, validation, deduplication, and schema enforcement.
 
 Step 4 — Gold Aggregation
 
-python gold/gold_streaming.py
+python gold/gold_streaming.py\
 
 Computes operational KPIs and writes analytics-ready Delta Lake tables.
 
@@ -246,7 +246,7 @@ Computes operational KPIs and writes analytics-ready Delta Lake tables.
 
 Step 5 — Dashboard
 
-python dashboards/silver_alerts.py
+python dashboards/silver_alerts.py\
 
 Visualizes operational metrics and service alerts in near real time.
 
