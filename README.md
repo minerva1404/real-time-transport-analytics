@@ -124,6 +124,172 @@ These metrics demonstrate how streaming pipelines can provide actionable operati
 * Data Quality Engineering
 * Fault Tolerance
 
-  
+---
+
+## 📂 Repository Structure
+
+real-time-transport-analytics/
+├── architecture/
+├── bronze/
+├── silver/
+├── gold/
+├── dashboard/
+└── README.md
+
+---
+
+## 🔄 Pipeline Workflow
+
+### Bronze Layer
+
+Raw GTFS-Realtime events are ingested from Kafka and stored without modification, preserving the original event stream for lineage and replay.
+
+### Silver Layer
+
+Incoming records undergo:
+
+* Schema validation
+* Null handling
+* Duplicate removal
+* Data cleansing
+* Standardization
+* Quality flag generation
+
+This layer produces trusted, analytics-ready datasets.
+
+### Gold Layer
+
+The Gold layer computes business-level KPIs including:
+
+* Route performance
+* Vehicle utilization
+* Peak traffic distribution
+* Hourly operational metrics
+* Service efficiency indicators
+
+These datasets are optimized for dashboarding and business reporting.
+
+---
+
+## 🚀 Getting Started
+
+1. Clone the Repository
+
+git clone <repository-url>
+cd real-time-transport-analytics
+
+⸻
+
+2. Create a Virtual Environment
+
+python -m venv venv
+# Linux / macOS
+source venv/bin/activate
+# Windows
+venv\Scripts\activate
+
+⸻
+
+3. Install Dependencies
+
+pip install -r requirements.txt
+
+⸻
+
+4. Start Apache Kafka
+
+Create the following Kafka topics:
+
+vehicle_positions
+trip_updates
+silver_vehicle_positions
+silver_trip_updates
+
+---
+
+## ▶️ Running the Pipeline
+
+Step 1 — Start Producers
+
+python producers/vehicle_positions_producer.py
+python producers/trip_updates_producer.py
+
+Streams live GTFS-Realtime data into Kafka topics.
+
+⸻
+
+Step 2 — Bronze Consumers
+
+python consumers/vehicle_positions_consumer.py
+python consumers/trip_updates_consumer.py
+
+Consumes Kafka events and stores raw Bronze datasets.
+
+⸻
+
+Step 3 — Silver Processing
+
+python silver/silver_producer_consumer.py
+python silver/silver_transform.py
+
+Performs cleansing, validation, deduplication, and schema enforcement.
+
+⸻
+
+Step 4 — Gold Aggregation
+
+python gold/gold_streaming.py
+
+Computes operational KPIs and writes analytics-ready Delta Lake tables.
+
+⸻
+
+Step 5 — Dashboard
+
 python dashboards/silver_alerts.py
+
+Visualizes operational metrics and service alerts in near real time.
+
+---
+
+## 💡 Engineering Decisions
+
+### Why Apache Kafka?
+
+Kafka enables scalable, decoupled event streaming between producers and consumers while supporting fault-tolerant message delivery.
+
+### Why Spark Structured Streaming?
+
+Structured Streaming provides scalable micro-batch processing with checkpointing and exactly-once processing semantics.
+
+### Why Delta Lake?
+
+Delta Lake ensures ACID-compliant storage, reliable streaming writes, schema enforcement, and future support for time travel.
+
+### Why Medallion Architecture?
+
+Separating Bronze, Silver, and Gold layers simplifies maintenance, improves data quality, and produces reliable analytical datasets.
+
+---
+
+## 🔮 Future Enhancements
+
+* Docker Compose deployment
+* Apache Airflow orchestration
+* Cloud-native deployment on AWS
+* CI/CD using GitHub Actions
+* Grafana monitoring
+* Data quality testing framework
+* Automated alerting
+* Real-time anomaly detection using machine learning
+
+---
+
+## 📄 License
+
+This project is intended for educational and portfolio purposes.
+
+⸻
+
+⭐ If you found this project interesting, consider giving the repository a star.
 
