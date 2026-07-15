@@ -43,7 +43,7 @@ The pipeline follows the Medallion Architecture (Bronze → Silver → Gold), pr
     Delta Lake Storage
 &#11015;
 		   
- Operational Dashboards
+	Operational Dashboards
 
  ---
 ## Key Achievements
