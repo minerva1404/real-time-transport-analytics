@@ -122,7 +122,6 @@ These metrics demonstrate how streaming pipelines can provide actionable operati
 ## 📂 Repository Structure
 
 real-time-transport-analytics/\
-|
 ├── architecture/\
 ├── bronze/\
 ├── silver/\
