@@ -1,15 +1,29 @@
-### Vehicle Positions Producer 🚍
+## 🚍 Vehicle Positions Producer
 
-The **Vehicle Positions Producer** continuously ingests **real-time vehicle location data** from the MBTA GTFS-Realtime feed.  
+Purpose
 
-Key points:
-- Streams live **vehicle position events** (latitude, longitude, trip ID, route ID) into the Kafka topic `vehicle_positions`.  
-- Uses a **robust producer loop** with error handling and automatic retries to ensure **reliable data ingestion**.  
-- Sends raw events directly to Kafka with **minimal transformation**, preserving the **full fidelity of the original feed**.  
-- Supports downstream Bronze consumers for **JSON batch storage**, enabling replayability and fault-tolerant data processing.  
-- Forms the **foundation of the Bronze layer**, providing a **continuous, real-time source of truth** for vehicle tracking and analytics.  
-- Enables all **upstream processing, alerts, and analytics**, making it a critical component for operational insights and monitoring.
+The Vehicle Positions Producer serves as the entry point of the real-time streaming pipeline. It continuously polls the MBTA GTFS-Realtime API for live vehicle position updates and publishes the events to the Kafka topic vehicle_positions.
 
+By performing minimal transformation before publishing, the producer preserves the original event structure, ensuring high-fidelity data ingestion and providing a reliable source of truth for downstream processing.
+
+---
+
+### Key Responsibilities
+
+* Continuously ingests live vehicle position events from the MBTA GTFS-Realtime feed.
+* Publishes serialized vehicle position messages to the Kafka topic vehicle_positions.
+* Preserves the original GTFS-Realtime payload with minimal transformation.
+* Implements robust error handling and automatic retry mechanisms for uninterrupted ingestion.
+* Supports continuous event streaming for downstream Bronze consumers.
+* Establishes the foundation for vehicle tracking, operational monitoring, and analytical workloads.
+
+---
+
+### Pipeline Role
+
+The Vehicle Positions Producer acts as the streaming ingestion service of the pipeline. It bridges the external GTFS-Realtime API with Apache Kafka, ensuring that every vehicle position update is captured and delivered reliably. By maintaining a continuous stream of raw events, it enables scalable, fault-tolerant downstream processing throughout the Medallion Architecture.
+
+---
 
 ```python code:
 from confluent_kafka import Producer
