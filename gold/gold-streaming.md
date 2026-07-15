@@ -10,7 +10,7 @@ Key responsibilities:
 - Supports real-time and historical analytics without reprocessing raw data.
 - Serves as the single source powering **Power BI dashboards and KPIs**.
 
-Code:
+## Source Code:
 ```python
 from delta import configure_spark_with_delta_pip
 from pyspark.sql import SparkSession, DataFrame
@@ -154,5 +154,5 @@ if __name__ == "__main__":
     main()
 ```
 
-Output:
+## Output:
 <img width="1920" height="1080" alt="gold_streaming" src="https://github.com/user-attachments/assets/700abaa9-436d-4b40-a38a-3e66a9121355" />
