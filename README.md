@@ -15,7 +15,7 @@ A production-inspired real-time data engineering pipeline that ingests live GTFS
 - [Technology Stack](#️-technology-stack)
 - [Repository Structure](#-repository-structure)
 - [Pipeline Workflow](#-pipeline-workflow)
-- [Getting Started](#-getting-started)
+- [Setup & Installation](#-setup-&-installation)
 - [Running the Pipeline](#️-running-the-pipeline)
 - [Engineering Decisions](#-engineering-decisions)
 - [Future Enhancements](#-future-enhancements)
@@ -33,34 +33,9 @@ The pipeline follows the Medallion Architecture (Bronze → Silver → Gold), pr
 
 ## 🏗️ Solution Architecture
 
+The following architecture illustrates the end-to-end streaming pipeline, from GTFS-Realtime data ingestion to analytics-ready dashboards.
+
 <img width="1536" height="1024" alt="Pipeline_Architecture" src="https://github.com/user-attachments/assets/b2fb6599-7937-4a34-abb2-ee630cf65120" />
-
-
-GTFS-Realtime Feed
-&#11015;
-		  
-Kafka Producers
-&#11015;
-		   
-Kafka Topics
-&#11015;
-		   
-PySpark Structured Streaming
-&#11015;
-		   
-Bronze Layer (Raw Events)
-&#11015;
-		  
-Silver Layer (Validated & Cleaned)
-&#11015;
-		   
-Gold Layer (Business KPIs)
-&#11015;
-		   
-Delta Lake Storage
-&#11015;
-		   
-Operational Dashboards
 
  ---
 ## ✨ Key Features
@@ -82,14 +57,15 @@ Operational Dashboards
 
 ## 📊 Project Highlights
 
-* Metric	Value
-* Daily Events Processed	1K–3K
-* End-to-End Latency	<10 Minutes
-* Streaming Framework	Apache Kafka + Spark Structured Streaming
-* Storage Layer	Delta Lake
-* Pipeline Architecture	Bronze → Silver → Gold
-* Data Processing	Streaming + Micro-Batch
-* Domain	Public Transportation
+| Metric | Value |
+|--------|-------|
+| Daily Events Processed | **1K–3K** |
+| End-to-End Latency | **<10 Minutes** |
+| Streaming Framework | Apache Kafka + Spark Structured Streaming |
+| Storage Layer | Delta Lake |
+| Pipeline Architecture | Bronze → Silver → Gold |
+| Data Processing | Streaming + Micro-Batch |
+| Domain | Public Transportation |
 
 ---
 
@@ -146,6 +122,7 @@ These metrics demonstrate how streaming pipelines can provide actionable operati
 ## 📂 Repository Structure
 
 real-time-transport-analytics/\
+|
 ├── architecture/\
 ├── bronze/\
 ├── silver/\
@@ -188,83 +165,83 @@ These datasets are optimized for dashboarding and business reporting.
 
 ---
 
-## 🚀 Getting Started
+## 🛠️ Setup & Installation
 
 1. Clone the Repository
-
+```bash
 git clone <repository-url> \
 cd real-time-transport-analytics
-
+```
 ⸻
 
-2. Create a Virtual Environment
-
+2. Create a Virtual Environment 
+```bash
 python -m venv venv\
 #Linux / macOS\
 source venv/bin/activate\
 #Windows\
 venv\Scripts\activate
-
+```
 ⸻
 
 3. Install Dependencies
-
+```bash
 pip install -r requirements.txt
-
+```
 ⸻
 
 4. Start Apache Kafka
 
 Create the following Kafka topics:
-
+```bash
 vehicle_positions\
 trip_updates\
 silver_vehicle_positions\
 silver_trip_updates
-
+```
 ---
 
 ## ▶️ Running the Pipeline
 
 Step 1 — Start Producers
-
+```bash
 python producers/vehicle_positions_producer.py\
 python producers/trip_updates_producer.py
-
+```
 Streams live GTFS-Realtime data into Kafka topics.
 
 ⸻
 
 Step 2 — Bronze Consumers
-
+```bash
 python consumers/vehicle_positions_consumer.py\
 python consumers/trip_updates_consumer.py
-
+```
 Consumes Kafka events and stores raw Bronze datasets.
 
 ⸻
 
 Step 3 — Silver Processing
-
+```bash
 python silver/silver_producer_consumer.py\
 python silver/silver_transform.py
-
+```
 Performs cleansing, validation, deduplication, and schema enforcement.
 
 ⸻
 
 Step 4 — Gold Aggregation
-
+```bash
 python gold/gold_streaming.py
-
+```
 Computes operational KPIs and writes analytics-ready Delta Lake tables.
 
 ⸻
 
 Step 5 — Dashboard
-
+```bash
 python dashboards/silver_alerts.py
-
+```
 Visualizes operational metrics and service alerts in near real time.
 
 ---
@@ -306,7 +283,6 @@ Separating Bronze, Silver, and Gold layers simplifies maintenance, improves data
 
 This project is intended for educational and portfolio purposes.
 
-⸻
+* -This project demonstrates modern data engineering practices including real-time streaming, Medallion Architecture, data quality engineering, and scalable analytics pipelines, providing a strong foundation for production-grade streaming systems.
 
-⭐ If you found this project interesting, consider giving the repository a star.
 
