@@ -155,6 +155,6 @@ finally:
     trip_consumer.close()
 ```
 
-Output:
+### Output:
 <img width="1920" height="1080" alt="silver_pc" src="https://github.com/user-attachments/assets/14a25926-3faa-4755-926c-1902fde0e629" />
 
