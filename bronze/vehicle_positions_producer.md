@@ -1,6 +1,6 @@
 ## 🚍 Vehicle Positions Producer
 
-Purpose
+### Purpose:
 
 The Vehicle Positions Producer serves as the entry point of the real-time streaming pipeline. It continuously polls the MBTA GTFS-Realtime API for live vehicle position updates and publishes the events to the Kafka topic vehicle_positions.
 
