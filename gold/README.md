@@ -23,22 +23,17 @@ This layer serves as the final stage of the streaming pipeline and powers real-t
 
 ### 🔄 Gold Layer Workflow
 
-Silver Cleaned Data
-        │
-        ▼
-Spark Structured Streaming
-        │
-        ▼
-Business Transformations
-        │
-        ▼
-Delta Lake
-        │
-        ▼
-Power BI Dashboard
-        │
-        ▼
-Business KPIs
+Silver Cleaned Data\
+        ↓\
+Spark Structured Streaming\
+        ↓\
+Business Transformations\
+        ↓\
+Delta Lake\
+        ↓\
+Power BI Dashboard\
+        ↓\
+Business KPIs\
 
 ---
 
@@ -66,7 +61,7 @@ The Gold Streaming Analytics module serves as the business intelligence layer of
 
 Console Output
 
-(Insert screenshot here.)
+<img width="1920" height="1080" alt="gold_streaming" src="https://github.com/user-attachments/assets/700abaa9-436d-4b40-a38a-3e66a9121355" />
 
 ⸻
 
