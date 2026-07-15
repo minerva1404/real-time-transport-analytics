@@ -20,8 +20,7 @@ The pipeline follows the Medallion Architecture (Bronze → Silver → Gold), pr
 
 
 GTFS-Realtime Feed
-          │
-          ▼
+          &#11015;
     Kafka Producers
           │
           ▼
