@@ -69,7 +69,5 @@ The resulting dashboards support:
 
 ---
 
-The diagram below illustrates the complete end-to-end streaming architecture and the responsibilities of each layer within the Medallion Architecture.
-
-
+The diagram below illustrates the complete end-to-end streaming architecture and the responsibilities of each layer within the Medallion Architecture: \
 ![Pipeline_Architecture](https://github.com/user-attachments/assets/9c0c1101-b2b8-43fa-a56c-00d8ea385208)
