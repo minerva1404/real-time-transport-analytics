@@ -59,7 +59,7 @@ The resulting datasets provide a single, trusted source of operational metrics t
 
 The Gold Streaming Analytics module serves as the business intelligence layer of the streaming pipeline. It transforms trusted operational datasets into analytics-ready tables optimized for reporting, dashboarding, and decision-making while maintaining fault tolerance through Delta Lake and Spark checkpointing.
 
-Console Output
+### Console Output:
 
 <img width="1920" height="1080" alt="gold_streaming" src="https://github.com/user-attachments/assets/700abaa9-436d-4b40-a38a-3e66a9121355" />
 
@@ -76,6 +76,6 @@ These datasets serve as the primary source for Power BI dashboards, operational 
 
 
 
-✅ Gold Layer Summary
+### ✅ Gold Layer Summary
 
 The Gold layer transforms trusted Silver datasets into business-ready analytical assets by combining multiple streaming sources, enriching records with temporal dimensions, and storing them as fault-tolerant Delta Lake tables. As the final stage of the Medallion Architecture, it delivers reliable, continuously updated datasets for real-time reporting, dashboarding, and operational decision-making.
