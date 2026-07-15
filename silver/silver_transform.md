@@ -1,16 +1,25 @@
-### Silver Transformation (Spark Structured Streaming) ✨
+## ✨ Silver Transformation
 
-The **Silver Transformation layer** cleans, validates, and standardizes incoming streams using **Spark Structured Streaming**.
+### Purpose
 
-Key responsibilities:
-- Reads Silver landing data as **continuous file-based streams**.
-- Enforces schemas for vehicle and trip datasets to ensure data consistency.
-- Removes invalid or incomplete records and applies lightweight enrichment.
-- Adds event timestamps required for downstream aggregation and analytics.
-- Writes cleaned outputs to structured Silver storage with checkpointing.
-- Serves as the **trusted, analytics-ready input** for Gold-level processing.
+The Silver Transformation module performs continuous cleansing, validation, and enrichment using Spark Structured Streaming. Incoming datasets are validated against predefined schemas, incomplete records are removed, and standardized outputs are written to the cleaned Silver storage layer.
 
-Code:
+The resulting datasets provide a trusted analytical foundation for Gold-level aggregation and business intelligence.
+
+### Key Responsibilities
+
+* Reads Silver landing datasets as continuous file streams.
+* Enforces schemas for vehicle and trip datasets.
+* Removes incomplete and invalid records.
+* Applies lightweight enrichment and event timestamp generation.
+* Writes cleaned datasets using Spark Structured Streaming.
+* Maintains checkpoint directories for fault recovery.
+
+### Pipeline Role
+
+The Silver Transformation module functions as the data quality engine of the pipeline. Through continuous validation and schema enforcement, it produces reliable datasets that support scalable analytics while preserving fault tolerance using Spark checkpointing.
+
+### Source Code:
 ```python
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, from_json, lit, concat, hour, dayofweek, current_timestamp, unix_timestamp
