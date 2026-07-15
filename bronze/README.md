@@ -23,26 +23,26 @@ By separating ingestion from transformation, the Bronze layer enables scalable, 
 
 ### 🔄 Bronze Layer Workflow
 
-MBTA GTFS-Realtime API
-          ↓
- Vehicle Positions Producer
-          ↓
+MBTA GTFS-Realtime API\
+          ↓\
+ Vehicle Positions Produce
+          ↓\
      Kafka Topic
-(vehicle_positions)
-          ↓
- Vehicle Positions Consumer
-          ↓
- Bronze JSON Storage
-──────────────────────────────────
-MBTA GTFS-Realtime API
-          ↓
-  Trip Updates Producer
-          ↓
+(vehicle_positions)\
+          ↓\
+ Vehicle Positions Consumer\
+          ↓\
+ Bronze JSON Storage\
+──────────────────────────────────\
+MBTA GTFS-Realtime API\
+          ↓\
+  Trip Updates Producer\
+          ↓\
      Kafka Topic
-   (trip_updates)
-          ↓
-  Trip Updates Consumer
-          ↓
+   (trip_updates)\
+          ↓\
+  Trip Updates Consumer\
+          ↓\
  Bronze JSON Storage
 
 ---
