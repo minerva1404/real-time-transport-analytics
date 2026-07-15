@@ -33,7 +33,7 @@ Delta Lake\
         ↓\
 Power BI Dashboard\
         ↓\
-Business KPIs\
+Business KPIs
 
 ---
 
