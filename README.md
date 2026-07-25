@@ -4,7 +4,6 @@ End-to-End Streaming Data Pipeline using Apache Kafka, PySpark Structured Stream
 
 A production-inspired real-time data engineering pipeline that ingests live GTFS-Realtime transit feeds, processes streaming events through a Medallion Architecture (Bronze → Silver → Gold), and delivers analytics-ready datasets for operational monitoring and decision-making.
 
-
 ## 📑 Table of Contents
 
 - [Project Overview](#project-overview)
@@ -33,11 +32,72 @@ The pipeline follows the Medallion Architecture (Bronze → Silver → Gold), pr
 
 ## 🏗️ Solution Architecture
 
-The following architecture illustrates the end-to-end streaming pipeline, from GTFS-Realtime data ingestion to analytics-ready dashboards.
+The following native diagram illustrates the end-to-end streaming architecture, tracking data flow directly from the transit API to downstream analytical endpoints.
 
-<img width="1536" height="1024" alt="Pipeline_Architecture" src="https://github.com/user-attachments/assets/b2fb6599-7937-4a34-abb2-ee630cf65120" />
+```mermaid
+graph LR
+    %% Data Sources
+    subgraph Data_Sources [Data Sources]
+        A[MBTA GTFS-Realtime APIs]
+        A1[• trip_updates]
+        A2[• vehicle_positions]
+    end
 
- ---
+    %% Streaming Ingestion
+    subgraph Streaming_Ingestion [Streaming Ingestion]
+        B[Apache Kafka Brokers]
+        B1[• vehicle_positions topic]
+        B2[• trip_updates topic]
+    end
+
+    %% Storage & Processing Layers
+    subgraph Medallion_Architecture [Medallion Architecture Layers]
+        C[(Bronze Layer: Raw Stream)]
+        D[Spark Structured Streaming]
+        E[(Silver Layer: Cleaned Tables)]
+        F[(Gold Layer: Delta Tables)]
+    end
+
+    %% Analytics Layer
+    subgraph Analytics_Serving [Analytics Layer]
+        G[Power BI / Alerts Dashboard]
+        H[Metrics Output]
+        H1[• Route Performance Stats]
+        H2[• Vehicle Utilization Rate]
+        H3[• Delay Forecasting Metrics]
+        H4[• Peak Traffic Distribution]
+    end
+
+    %% Data Flow Connections
+    A --> B
+    A1 --> B1
+    A2 --> B2
+    
+    B1 --> C
+    B2 --> C
+    
+    C --> D
+    D --> E
+    E --> F
+    
+    F --> G
+    G --> H
+    H --> H1
+    H --> H2
+    H --> H3
+    H --> H4
+
+    %% Styling
+    style A fill:#1f2937,stroke:#3b82f6,stroke-width:2px,color:#fff
+    style B fill:#1f2937,stroke:#ec4899,stroke-width:2px,color:#fff
+    style C fill:#1e3a8a,stroke:#3b82f6,stroke-width:2px,color:#fff
+    style E fill:#115e59,stroke:#14b8a6,stroke-width:2px,color:#fff
+    style F fill:#78350f,stroke:#f59e0b,stroke-width:2px,color:#fff
+    style G fill:#1f2937,stroke:#10b981,stroke-width:2px,color:#fff
+```
+
+---
+
 ## ✨ Key Features
 
 * Real-time ingestion of GTFS-Realtime vehicle positions and trip updates
@@ -86,29 +146,24 @@ These metrics demonstrate how streaming pipelines can provide actionable operati
 ## ⚙️ Technology Stack
 
 ### Programming
-
 * Python
 * SQL
 * PySpark
 * Pandas
 
 ### Streaming & Messaging
-
 * Apache Kafka
 * Spark Structured Streaming
 
 ### Storage
-
 * Delta Lake
 * JSON
 
 ### Data Formats
-
 * GTFS-Realtime Protocol Buffers
 * JSON
 
 ### Engineering Concepts
-
 * Medallion Architecture
 * ETL / ELT Pipelines
 * Micro-Batch Processing
@@ -134,13 +189,10 @@ real-time-transport-analytics/\
 ## 🔄 Pipeline Workflow
 
 ### Bronze Layer
-
 Raw GTFS-Realtime events are ingested from Kafka and stored without modification, preserving the original event stream for lineage and replay.
 
 ### Silver Layer
-
 Incoming records undergo:
-
 * Schema validation
 * Null handling
 * Duplicate removal
@@ -151,9 +203,7 @@ Incoming records undergo:
 This layer produces trusted, analytics-ready datasets.
 
 ### Gold Layer
-
 The Gold layer computes business-level KPIs including:
-
 * Route performance
 * Vehicle utilization
 * Peak traffic distribution
@@ -168,74 +218,63 @@ These datasets are optimized for dashboarding and business reporting.
 
 1. Clone the Repository
 ```bash
-git clone <repository-url> \
+git clone <repository-url>
 cd real-time-transport-analytics
 ```
-⸻
 
 2. Create a Virtual Environment 
 ```bash
-python -m venv venv\
-#Linux / macOS\
-source venv/bin/activate\
-#Windows\
+python -m venv venv
+# Linux / macOS
+source venv/bin/activate
+# Windows
 venv\Scripts\activate
 ```
-⸻
 
 3. Install Dependencies
 ```bash
 pip install -r requirements.txt
 ```
-⸻
 
 4. Start Apache Kafka
-
 Create the following Kafka topics:
 ```bash
-vehicle_positions\
-trip_updates\
-silver_vehicle_positions\
+vehicle_positions
+trip_updates
+silver_vehicle_positions
 silver_trip_updates
 ```
+
 ---
 
 ## ▶️ Running the Pipeline
 
 Step 1 — Start Producers
 ```bash
-python producers/vehicle_positions_producer.py\
+python producers/vehicle_positions_producer.py
 python producers/trip_updates_producer.py
 ```
 Streams live GTFS-Realtime data into Kafka topics.
 
-⸻
-
 Step 2 — Bronze Consumers
 ```bash
-python consumers/vehicle_positions_consumer.py\
+python consumers/vehicle_positions_consumer.py
 python consumers/trip_updates_consumer.py
 ```
 Consumes Kafka events and stores raw Bronze datasets.
 
-⸻
-
 Step 3 — Silver Processing
 ```bash
-python silver/silver_producer_consumer.py\
+python silver/silver_producer_consumer.py
 python silver/silver_transform.py
 ```
 Performs cleansing, validation, deduplication, and schema enforcement.
-
-⸻
 
 Step 4 — Gold Aggregation
 ```bash
 python gold/gold_streaming.py
 ```
 Computes operational KPIs and writes analytics-ready Delta Lake tables.
-
-⸻
 
 Step 5 — Dashboard
 ```bash
@@ -248,19 +287,15 @@ Visualizes operational metrics and service alerts in near real time.
 ## 💡 Engineering Decisions
 
 ### Why Apache Kafka?
-
 Kafka enables scalable, decoupled event streaming between producers and consumers while supporting fault-tolerant message delivery.
 
 ### Why Spark Structured Streaming?
-
 Structured Streaming provides scalable micro-batch processing with checkpointing and exactly-once processing semantics.
 
 ### Why Delta Lake?
-
 Delta Lake ensures ACID-compliant storage, reliable streaming writes, schema enforcement, and future support for time travel.
 
 ### Why Medallion Architecture?
-
 Separating Bronze, Silver, and Gold layers simplifies maintenance, improves data quality, and produces reliable analytical datasets.
 
 ---
@@ -282,6 +317,5 @@ Separating Bronze, Silver, and Gold layers simplifies maintenance, improves data
 
 This project is intended for educational and portfolio purposes.
 
-* -This project demonstrates modern data engineering practices including real-time streaming, Medallion Architecture, data quality engineering, and scalable analytics pipelines, providing a strong foundation for production-grade streaming systems.
-
-
+---
+This project demonstrates modern data engineering practices including real-time streaming, Medallion Architecture, data quality engineering, and scalable analytics pipelines, providing a strong foundation for production-grade streaming systems.
