@@ -61,7 +61,7 @@ The Gold Streaming Analytics module serves as the business intelligence layer of
 
 ### Console Output:
 
-<img width="1920" height="1080" alt="gold_streaming" src="https://github.com/user-attachments/assets/700abaa9-436d-4b40-a38a-3e66a9121355" />
+<img width="800" alt="gold_streaming" src="https://github.com/user-attachments/assets/700abaa9-436d-4b40-a38a-3e66a9121355" />
 
 ⸻
 
