@@ -70,7 +70,7 @@ The Vehicle Positions Producer acts as the streaming ingestion service of the pi
 
 ### Console Output
 
-<img width="1920" height="1080" alt="vehicle_position_p" src="https://github.com/user-attachments/assets/9c170e7b-d62b-422c-b62d-2bacc2cce68e" />
+<img width="800" alt="vehicle_position_p" src="https://github.com/user-attachments/assets/9c170e7b-d62b-422c-b62d-2bacc2cce68e" />
 
 ---
 
@@ -97,7 +97,7 @@ The Vehicle Positions Consumer functions as the Bronze persistence service withi
 
 ### Console Output
 
-<img width="1920" height="1080" alt="vehicle_position_c" src="https://github.com/user-attachments/assets/2d23a1c5-5287-4ce0-963e-cc613f8c4218" />
+<img width="800" alt="vehicle_position_c" src="https://github.com/user-attachments/assets/2d23a1c5-5287-4ce0-963e-cc613f8c4218" />
 
 ---
 
@@ -124,7 +124,7 @@ The Trip Updates Producer serves as the real-time trip event ingestion service f
 
 ### Console Output
 
-<img width="1920" height="1080" alt="trip_updates_p" src="https://github.com/user-attachments/assets/7f05a244-9031-4d83-8cb2-3c771a8d7298" />
+<img width="800" alt="trip_updates_p" src="https://github.com/user-attachments/assets/7f05a244-9031-4d83-8cb2-3c771a8d7298" />
 ⸻
 
 ## 📥 Component 4 — Trip Updates Consumer
@@ -150,7 +150,7 @@ The Trip Updates Consumer acts as the Bronze persistence service for trip-level 
 
 ### Console Output
 
-<img width="1920" height="1080" alt="Trip_updates_c" src="https://github.com/user-attachments/assets/747168b0-2991-41ab-8758-4e5aec5ead39" />
+<img width="800" alt="Trip_updates_c" src="https://github.com/user-attachments/assets/747168b0-2991-41ab-8758-4e5aec5ead39" />
 
 ---
 
