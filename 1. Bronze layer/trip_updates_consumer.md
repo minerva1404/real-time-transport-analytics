@@ -115,4 +115,4 @@ while True:
 ---
 
 ## Output:
-<img width="1920" height="1080" alt="Trip_updates_c" src="https://github.com/user-attachments/assets/747168b0-2991-41ab-8758-4e5aec5ead39" />
+<img width="800" alt="Trip_updates_c" src="https://github.com/user-attachments/assets/747168b0-2991-41ab-8758-4e5aec5ead39" />
