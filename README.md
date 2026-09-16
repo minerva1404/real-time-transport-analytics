@@ -212,6 +212,10 @@ The Gold layer computes business-level KPIs including:
 
 These datasets are optimized for dashboarding and business reporting.
 
+### Streaming Output:
+
+<img width="800" alt="gold_streaming" src="https://github.com/user-attachments/assets/700abaa9-436d-4b40-a38a-3e66a9121355" />
+
 ---
 
 ## 🚀 Getting Started
